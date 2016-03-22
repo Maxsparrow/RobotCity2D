@@ -13,9 +13,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - PlayerCharacter
+  - JumperNoCollide
+  - Platform
   - 
   - 
   - 

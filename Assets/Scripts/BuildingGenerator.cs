@@ -8,6 +8,7 @@ public class BuildingGenerator : MonoBehaviour {
     public GameObject[] buildingRooms;
     public GameObject[] buildingFirstWalls;
     public GameObject[] buildingOtherWalls;
+    public GameObject[] enemies;
     public Vector3 startingPosition;
     public int numberOfBuildings;
     public int maxFloors;
@@ -30,6 +31,8 @@ public class BuildingGenerator : MonoBehaviour {
         public GameObject otherWall;
         public float otherWallWidth;
         public float otherWallHeight;
+
+        public GameObject enemy;
     }
 
     void createBuildingArray()
@@ -62,6 +65,8 @@ public class BuildingGenerator : MonoBehaviour {
             logCompareBuildingPart(buildings[i].firstWallHeight, buildings[i].otherWallHeight, i, "first wall height", "other wall height");
             logCompareBuildingPart(buildings[i].roomHeight, buildings[i].otherWallHeight, i, "room height", "other wall height");
             logCompareBuildingPart(buildings[i].floorWidth, buildings[i].roomWidth + buildings[i].firstWallWidth * 2, i, "floor width", "room plus walls width");
+
+            buildings[i].enemy = enemies[i];
         }
     }
 
@@ -82,26 +87,39 @@ public class BuildingGenerator : MonoBehaviour {
         {
             // TODO implement a way to chooseBuildingType()
             int buildingNumber = 0;
+            GameObject buildingObj = new GameObject();
+            buildingObj.name = "Building Number " + (i + 1);
+            buildingObj.transform.parent = transform;
 
             // Generate floors
             for (int j = 0; j < findNumberOfFloors(i + 1) ; j++)
-            { 
+            {
+                GameObject floorObj = new GameObject();
+                floorObj.name = "Floor Number " + (j + 1);
+                floorObj.transform.parent = buildingObj.transform;
+
                 // Generate room
-                GameObject.Instantiate(buildings[buildingNumber].room, currentPosition, Quaternion.identity);
+                GameObject room = (GameObject)GameObject.Instantiate(buildings[buildingNumber].room, currentPosition, Quaternion.identity);
+                room.transform.parent = floorObj.transform;
 
                 // Generate Walls, different wall for first floor
                 if (j == 0)
                 {
-                    generateFirstWalls(currentPosition, buildingNumber);
+                    generateFirstWalls(currentPosition, buildingNumber, floorObj);
                 } else
                 {
-                    generateOtherWalls(currentPosition, buildingNumber);
+                    generateOtherWalls(currentPosition, buildingNumber, floorObj);
                 }
+
+                Vector3 enemyPosition = new Vector3(currentPosition.x - buildings[buildingNumber].roomWidth / 2 + 1, currentPosition.y, currentPosition.z - 2);
+                GameObject enemy = (GameObject)GameObject.Instantiate(buildings[buildingNumber].enemy, enemyPosition, Quaternion.identity);
+                enemy.transform.parent = floorObj.transform;
 
                 // Generate next floor/ceiling
                 // Need to add half the room height and half the floor height to get to the CENTER of the next object
                 currentPosition.y += buildings[buildingNumber].roomHeight / 2 + buildings[buildingNumber].floorHeight / 2;
-                GameObject.Instantiate(buildings[buildingNumber].floor, currentPosition, Quaternion.identity);
+                GameObject floor = (GameObject)GameObject.Instantiate(buildings[buildingNumber].floor, currentPosition, Quaternion.identity);
+                floor.transform.parent = floorObj.transform;
 
                 // Prepare for next room generation
                 currentPosition.y += buildings[buildingNumber].floorHeight / 2 + buildings[buildingNumber].roomHeight / 2;
@@ -112,22 +130,26 @@ public class BuildingGenerator : MonoBehaviour {
         }
     }
 
-    void generateFirstWalls(Vector3 currentPosition, int buildingNumber)
+    void generateFirstWalls(Vector3 currentPosition, int buildingNumber, GameObject parentObject)
     {
         currentPosition.x -= buildings[buildingNumber].roomWidth / 2 + buildings[buildingNumber].firstWallWidth / 2;
-        GameObject.Instantiate(buildings[buildingNumber].firstWall, currentPosition, Quaternion.identity);
+        GameObject leftWall = (GameObject)GameObject.Instantiate(buildings[buildingNumber].firstWall, currentPosition, Quaternion.identity);
+        leftWall.transform.parent = parentObject.transform;
 
         currentPosition.x += buildings[buildingNumber].roomWidth + buildings[buildingNumber].firstWallWidth;
-        GameObject.Instantiate(buildings[buildingNumber].firstWall, currentPosition, Quaternion.identity);
+        GameObject rightWall = (GameObject)GameObject.Instantiate(buildings[buildingNumber].firstWall, currentPosition, Quaternion.identity);
+        rightWall.transform.parent = parentObject.transform;
     }
 
-    void generateOtherWalls(Vector3 currentPosition, int buildingNumber)
+    void generateOtherWalls(Vector3 currentPosition, int buildingNumber, GameObject parentObject)
     {
         currentPosition.x -= buildings[buildingNumber].roomWidth / 2 + buildings[buildingNumber].otherWallWidth / 2;
-        GameObject.Instantiate(buildings[buildingNumber].otherWall, currentPosition, Quaternion.identity);
+        GameObject leftWall = (GameObject)GameObject.Instantiate(buildings[buildingNumber].otherWall, currentPosition, Quaternion.identity);
+        leftWall.transform.parent = parentObject.transform;
 
         currentPosition.x += buildings[buildingNumber].roomWidth + buildings[buildingNumber].otherWallWidth;
-        GameObject.Instantiate(buildings[buildingNumber].otherWall, currentPosition, Quaternion.identity);
+        GameObject rightWall = (GameObject)GameObject.Instantiate(buildings[buildingNumber].otherWall, currentPosition, Quaternion.identity);
+        rightWall.transform.parent = parentObject.transform;
     }
 
     // Function to find the number of floors to generate based on the current building number, number of max floors, and the number of buildings

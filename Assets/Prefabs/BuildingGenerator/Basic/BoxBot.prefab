@@ -13,7 +13,8 @@ GameObject:
   - 50: {fileID: 5085702}
   - 114: {fileID: 11403014}
   - 60: {fileID: 6036294}
-  m_Layer: 0
+  - 114: {fileID: 11448298}
+  m_Layer: 11
   m_Name: BoxBot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 194328}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9829259, y: -2.96, z: 0}
+  m_LocalPosition: {x: -1.98292589, y: -2.96000004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -39,10 +40,9 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 194328}
-  m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: .0500000007
   m_GravityScale: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -56,36 +56,35 @@ PolygonCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 194328}
   m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: 0.91722274, y: 0.38333678}
-      - {x: 0.7360151, y: 0.3842473}
-      - {x: 0.74520755, y: 0.82437706}
-      - {x: 0.9004152, y: 0.9939616}
-      - {x: 0.89, y: 1}
-      - {x: 0.5, y: 1}
-      - {x: 0.5, y: 0.97999996}
-      - {x: 0.6370928, y: 0.8268688}
-      - {x: 0.6427772, y: 0.38611388}
-      - {x: -0.7966609, y: 0.37996697}
-      - {x: -0.80653024, y: 0.017200708}
-      - {x: -1, y: 0.06}
-      - {x: -1, y: -0.26}
-      - {x: -0.98999995, y: -0.26999998}
-      - {x: -0.80192494, y: -0.25450587}
-      - {x: -0.80248094, y: -0.71719384}
-      - {x: -0.8641553, y: -0.8074398}
-      - {x: -0.8648796, y: -0.91671777}
-      - {x: -0.79719925, y: -1}
-      - {x: 0.93621635, y: -0.9962163}
-      - {x: 0.9810811, y: -0.9286487}
-      - {x: 0.98486495, y: -0.8027024}
-      - {x: 0.93459463, y: -0.72918916}
+    - - {x: .917222738, y: .383336782}
+      - {x: .736015081, y: .384247303}
+      - {x: .745207548, y: .82437706}
+      - {x: .900415182, y: .993961573}
+      - {x: .889999986, y: 1}
+      - {x: .5, y: 1}
+      - {x: .5, y: .979999959}
+      - {x: .637092829, y: .826868773}
+      - {x: .642777205, y: .386113882}
+      - {x: -.7966609, y: .379966974}
+      - {x: -.806530237, y: .0172007084}
+      - {x: -1, y: .0599999987}
+      - {x: -1, y: -.25999999}
+      - {x: -.98999995, y: -.269999981}
+      - {x: -.801924944, y: -.254505873}
+      - {x: -.802480936, y: -.717193842}
+      - {x: -.864155293, y: -.807439804}
+      - {x: -.864879608, y: -.916717768}
+      - {x: -.797199249, y: -1}
+      - {x: .936216354, y: -.996216297}
+      - {x: .981081128, y: -.92864871}
+      - {x: .98486495, y: -.802702427}
+      - {x: .934594631, y: -.729189157}
 --- !u!95 &9511964
 Animator:
   serializedVersion: 3
@@ -116,6 +115,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patrolDistance: 6.5
   speed: 3
+--- !u!114 &11448298
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8200c00d65c564e45abac46359aef0b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  health: 60
 --- !u!212 &21266260
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -134,25 +146,33 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b7e87a1786927cd47806b58f8866577b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: health
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damage
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 194328}

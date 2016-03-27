@@ -8,25 +8,25 @@ SceneSettings:
   m_PVSPortalsArray: []
   m_OcclusionBakeSettings:
     smallestOccluder: 5
-    smallestHole: 0.25
+    smallestHole: .25
     backfaceThreshold: 100
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
   m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogColor: {r: .5, g: .5, b: .5, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: .00999999978
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
-  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
-  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientSkyColor: {r: .211999997, g: .226999998, b: .259000003, a: 1}
+  m_AmbientEquatorColor: {r: .114, g: .125, b: .133000001, a: 1}
+  m_AmbientGroundColor: {r: .0469999984, g: .0430000015, b: .0350000001, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SkyboxMaterial: {fileID: 0}
-  m_HaloStrength: 0.5
+  m_HaloStrength: .5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
@@ -37,10 +37,13 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+--- !u!127 &3
+LevelGameManager:
+  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 6
+  serializedVersion: 5
   m_GIWorkflowMode: 1
   m_LightmapsMode: 1
   m_GISettings:
@@ -65,8 +68,7 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
-    m_ReflectionCompression: 2
-  m_LightingDataAsset: {fileID: 0}
+  m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
 NavMeshSettings:
@@ -74,15 +76,15 @@ NavMeshSettings:
   m_ObjectHideFlags: 0
   m_BuildSettings:
     serializedVersion: 2
-    agentRadius: 0.5
+    agentRadius: .5
     agentHeight: 2
     agentSlope: 45
-    agentClimb: 0.4
+    agentClimb: .400000006
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     accuratePlacement: 0
     minRegionArea: 2
-    cellSize: 0.16666667
+    cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1001 &99803159
@@ -144,11 +146,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 455002, guid: c27fde5a24516ef47ae5dd7126071fe8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4.71
+      value: -4.71000004
       objectReference: {fileID: 0}
     - target: {fileID: 455002, guid: c27fde5a24516ef47ae5dd7126071fe8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.11
+      value: -3.25
       objectReference: {fileID: 0}
     - target: {fileID: 455002, guid: c27fde5a24516ef47ae5dd7126071fe8, type: 2}
       propertyPath: m_LocalPosition.z
@@ -176,30 +178,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5043172, guid: c27fde5a24516ef47ae5dd7126071fe8, type: 2}
       propertyPath: m_Constraints
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6120020, guid: c27fde5a24516ef47ae5dd7126071fe8, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c27fde5a24516ef47ae5dd7126071fe8, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1093640959 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 169464, guid: c27fde5a24516ef47ae5dd7126071fe8, type: 2}
-  m_PrefabInternal: {fileID: 193252031}
---- !u!61 &1093640960
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1093640959}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 0.22, y: 0.56}
 --- !u!4 &1093640964 stripped
 Transform:
   m_PrefabParentObject: {fileID: 455002, guid: c27fde5a24516ef47ae5dd7126071fe8, type: 2}
@@ -313,11 +296,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 498540, guid: 7a8bca20cabf3254eb4af9a83f681e27, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.91
+      value: 2.91000009
       objectReference: {fileID: 0}
     - target: {fileID: 498540, guid: 7a8bca20cabf3254eb4af9a83f681e27, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.8
+      value: -1.79999995
       objectReference: {fileID: 0}
     - target: {fileID: 498540, guid: 7a8bca20cabf3254eb4af9a83f681e27, type: 2}
       propertyPath: m_LocalPosition.z
@@ -383,7 +366,7 @@ MonoBehaviour:
   - {fileID: 125376, guid: 40b2e98de8d26354889e3bba17906d78, type: 2}
   enemies:
   - {fileID: 194328, guid: dd4d3a95ba6dde74f9a2242b9abbfbf0, type: 2}
-  startingPosition: {x: 30.22, y: -2.75, z: 2}
+  startingPosition: {x: 30.2199993, y: -2.75, z: 2}
   numberOfBuildings: 15
   maxFloors: 30
   spaceBetween: 5
@@ -394,7 +377,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1925538855}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0454702, y: -0.06843667, z: 0}
+  m_LocalPosition: {x: 1.04547024, y: -.0684366673, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -449,14 +432,14 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.6033737, g: 0.63465977, b: 0.6838235, a: 0.019607844}
+  m_BackGroundColor: {r: .603373706, g: .634659767, b: .683823526, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
   orthographic: 1
@@ -468,11 +451,10 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
-  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
+  m_StereoSeparation: .0219999999
   m_StereoMirrorMode: 0
 --- !u!4 &2071709013
 Transform:

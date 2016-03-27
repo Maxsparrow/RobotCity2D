@@ -21,11 +21,11 @@ public class HeliDrone : MonoBehaviour {
 	void Update () {
         Move();
         if (xDirection == 1)
-        {
-            GetComponent<SpriteRenderer>().flipX = true;
+		{
+			transform.rotation = new Quaternion(0, 180, 0, 0);
         } else if (xDirection == -1)
-        {
-            GetComponent<SpriteRenderer>().flipX = false;
+		{
+			transform.rotation = new Quaternion(0, 0, 0, 0);
         }
 	}
 
